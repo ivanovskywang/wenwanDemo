@@ -1,0 +1,64 @@
+<import src="../../../common/head.wxml" />
+<import src="../../../common/foot.wxml" />
+
+<view class="container">
+  <template is="head" data="{{title: 'get/set/clearStorage'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">key</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入key" name="key" value="{{key}}" bindinput="keyChange"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">value</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入value" name="data" value="{{data}}" bindinput="dataChange"></input>
+          </view>
+        </view>
+        <view class="page-body-info">
+        <view class="page-body-title">用例执行状态</view>
+        <block wx:if="{{resultFlag === false}}">
+          <text class="page-body-text">未执行</text>
+          <text class="page-body-text">点击绿色按钮可执行用例</text>
+        </block>
+        <block wx:if="{{resultFlag === true}}">
+          <block wx:if="{{limitSize === 512000}}">
+            <text class="page-body-text-network-type">OK</text>
+          </block>
+        </block>
+      </view>
+
+      <view class="page-body-info">
+          <view class="page-body-title">第二个用例执行状态</view>
+          <block wx:if="{{result2Flag === false}}">
+            <text class="page-body-text">未执行</text>
+            <text class="page-body-text">点击"执行第二个用例"按钮可执行用例</text>
+          </block>
+          <block wx:if="{{result2Flag === true}}">
+              <text class="page-body-text-network-type">{{platform}}</text>
+          </block>
+        </view>
+
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="setStorage">存储数据</button>
+        <button bindtap="getStorage">读取数据</button>
+        <button bindtap="clearStorage">清理数据</button>
+        <button bindtap="executeAPI">执行用例</button>
+        <button bindtap="execute2API">执行第二个用例</button>
+      </view>
+    </view>
+  </view>
+
+  <modal title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel bindconfirm="confirm">{{dialog.content}}</modal>
+
+  <template is="foot" />
+</view>

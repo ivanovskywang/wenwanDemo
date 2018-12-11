@@ -7,13 +7,14 @@
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/chooseLib/chooseLib",
+    "page/API/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "阿龙Demo",
+    "navigationBarTitleText": "点哪都好使",
     "navigationBarTextStyle": "black"
   },
   "tabBar":{
@@ -33,6 +34,12 @@
         "iconPath": "images/mine.png",
         "selectedIconPath": "images/mine.png",
         "pagePath": "pages/userConsole/userConsole"
+      },
+      {
+        "text": "接口用例",
+        "pagePath": "page/API/index",
+        "iconPath": "images/icon_API.png",
+        "selectedIconPath": "images/icon_API_HL.png"
       }
     ]
   }
